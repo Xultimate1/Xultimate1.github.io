@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calorie calculator</title>
+</head>
+<style>
+
+    body{
+        background-color: cyan;
+        text-align: center;
+        font-family: monospace;
+        font-size: large;
+    }
+
+    h1{
+        color: floralwhite;
+    }
+
+</style>
+<body>
+    
+    <h1>Calorie Calculator</h1>
+
+    <form id="cal_calculator">
+        <input type="number" name="protein" id="protein" placeholder="Enter the Protein in grams.">
+        <input type="number" name="carbs" id="carbs" placeholder="Enter the Carbohydrates in grams.">
+        <input type="number" name="fat" id="fat" placeholder="Enter the Fat in grams.">
+        <input type="submit" value="Calculate Total Calories">
+    </form>
+
+    <p id = "calories">  </p>
+
+    <script>
+        const cal_calculator = document.getElementById("cal_calculator")
+
+        cal_calculator.addEventListener("submit", function(e) {
+            e.preventDefault()
+
+            const protein = parseInt(document.getElementById("protein").value)*4
+            const carbs = parseInt(document.getElementById("carbs").value)*4
+            const fat = parseInt(document.getElementById("fat").value)*9
+            const calories = document.getElementById("calories")
+
+            const total_calories = protein + carbs + fat
+            
+            console.log(protein)
+            console.log(carbs)
+            console.log(fat)
+            console.log(total_calories)
+            if(protein !== NaN && carbs !== NaN && fat !== NaN ) {
+                calories.innerHTML = `<h1>Fat: ${fat}</h1><h1>Carbs: ${carbs}</h1><h1>Proteins: ${protein}</h1><h1>Total Calories: ${total_calories}</h1>`
+            } else {
+                calories.innerHTML = "Please Provide All The Required Information."
+            }
+
+
+        })
+    </script>
+
+</body>
+</html>
