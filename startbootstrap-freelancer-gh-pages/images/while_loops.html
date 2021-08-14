@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="basic_Style.css">
+    <title>While Loops</title>
+</head>
+<body>
+    <h1>While Loops</h1>
+
+    <script>
+        const password = "12345@"       
+
+
+        let user_password = prompt("Enter the password")
+
+        let tries = 3
+
+        while (password !== user_password) {
+            tries--
+
+            if (tries > 0) {
+                user_password = prompt(`Tries: ${tries} \nInvalid Password. Try Again!`)
+            } else {
+                break
+            }
+        }
+    
+        if (tries > 0) {
+            console.log("Welcome To Your Account")
+        } else {
+            console.log("5ysT3m Er40r")
+        }
+        
+
+    </script>
+</body>
+</html>
