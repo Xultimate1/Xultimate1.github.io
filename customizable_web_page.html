@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <style>
+    body{
+      background-color: #ddf3e2;
+    }
+      .boxes{
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .box{
+        width: 150px;
+        height: 150px;
+        border: 1px solid;
+        margin: 5px;
+        background-size: cover; 
+      }
+      
+      .image1{
+        background-image: url('https://www.dinneratthezoo.com/wp-content/uploads/2018/05/ground-beef-tacos-2.jpg');
+               
+      }
+      
+      .image2{
+        background-image:url('https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png');
+      }
+      
+      .image3{
+        background-image: url('https://pbs.twimg.com/profile_images/994592419705274369/RLplF55e_400x400.jpg');
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Customizable Web Page</h1>
+    <hr>
+    
+    Type a value for Border Width:
+    <input type="number" id="width" onchange="widthChange()">
+    <br/>
+    Pick a Border Style:
+    <select id="style" onchange="styleChange()">
+      <option value="dotted">dotted </option>
+      <option value="dashed">dashed</option>
+      <option value="solid">solid</option>
+      <option value="double">double</option>
+      <option value="groove">groove</option>
+      <option value="ridge">ridge</option>
+      <option value="inset">inset</option>
+      <option value="outset">outset</option>
+
+    </select>
+    <br/>
+    Pick a Border Color:
+    <input type="color" id="color" onchange="colorChange()">
+    
+    
+    <div class="boxes">
+      <div class="box image1"></div>
+      <div class="box image2"></div>
+      <div class="box image3"></div>
+    </div>
+
+    <script>
+        const box = document.querySelectorAll(".box")
+
+        //console.log(box)
+
+        function widthChange() {
+            const width = document.getElementById("width").value
+
+            box.forEach(function (item) {
+
+                item.style.borderWidth = `${parseInt(width)}px`
+                console.log(width)
+            })
+        }
+
+        function colorChange() {
+            const color = document.getElementById("color").value
+
+            box.forEach(function (item) {
+
+                item.style.borderColor = `${color}`
+                console.log(color)
+            })
+        }
+
+        function styleChange() {
+            const style = document.getElementById("style").value
+
+            box.forEach(function (item) {
+
+                item.style.borderStyle = `${(style)}`
+                console.log(style)
+            })
+        }
+
+
+
+
+    </script>
+    
+  </body>
+</html>
