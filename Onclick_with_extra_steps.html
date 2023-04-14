@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .mypage {
+            height: 100%;
+            display: grid;
+            grid-template-rows: 50px 200px auto 50px;
+        }
+
+
+
+        .row2 {
+            background-image: url('https://images.pexels.com/photos/2739666/pexels-photo-2739666.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+            background-size: cover;
+        }
+
+
+        h3 {
+            text-align: center;
+
+            font-size: 20px;
+        }
+
+        h6 {
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .forests,
+        .custom_theme {
+            width: 75%;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="mypage">
+
+        <div class="row1" id="row1">
+            <h3 id="header_title">Welcome to my Webpage on Forests</h3>
+        </div>
+
+        <div class="row2" id="row2">
+
+        </div>
+
+        <div class="row3" id="row3">
+
+            <div class="forests">
+
+                <h4 id="header_title">Three Types of Forests</h4>
+                <div id="color_content">
+                    <p>There are three general types of forest that exist: temperate, tropical, and boreal.
+                        These forests cover approximately one-third of Earth's surface.</p>
+
+                    <ul>
+                        <li>Temperate</li>
+                        <li>Tropical</li>
+                        <li>Boreal</li>
+
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="custom_theme">
+                Pick Color: <input type="color" id="color">
+                <input type="button" value="Set Header Background Color" id="header_background">
+                <input type="button" value="Set Content Background Color" id="content_background">
+                <input type="button" value="Set Color of Titles" id="color_titles">
+                <input type="button" value="Set Color of Paragraph" id="color_paragraph">
+
+            </div>
+
+        </div>
+
+        <div class="row4" id="row4">
+            <h6>Webpage Designed by</h6>
+        </div>
+
+    </div>
+
+    <script>
+        const color = document.getElementById("color")
+
+        const header_background = document.getElementById("header_background")
+        const content_background = document.getElementById("content_background")
+        const color_titles = document.getElementById("color_titles")
+        const color_paragraph = document.getElementById("color_paragraph")
+
+        header_background.addEventListener("click", function () {
+            document.getElementById("row1").style.backgroundColor = color.value
+        })
+
+        content_background.addEventListener("click", function () {
+            document.getElementById("row3").style.backgroundColor = color.value
+        })
+
+        color_titles.addEventListener("click", function () {
+            const all_titles = document.querySelectorAll("#header_title")
+            console.log(all_titles)
+            all_titles.forEach((title) => {
+                console.log(title)
+                title.style.color = color.value
+            })
+        })
+        color_paragraph.addEventListener("click", function () {
+            document.getElementById("color_content").style.color = color.value
+        })
+    </script>
+
+</body>
+
+
+</html>
